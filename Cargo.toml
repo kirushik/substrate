@@ -93,6 +93,7 @@ members = [
 	"srml/scored-pool",
 	"srml/session",
 	"srml/staking",
+	"srml/staking/reward-curve",
 	"srml/sudo",
 	"srml/system",
 	"srml/timestamp",
