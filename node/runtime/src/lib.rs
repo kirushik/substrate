@@ -231,7 +231,7 @@ impl session::historical::Trait for Runtime {
 }
 
 srml_staking_reward_curve::build! {
-	const REWARD_CURVE: PiecewiseLinear = curve!(
+	const REWARD_CURVE: PiecewiseLinear<'static> = curve!(
 		min_inflation: 0_025_000,
 		max_inflation: 0_100_000,
 		ideal_stake: 0_500_000,
@@ -244,7 +244,7 @@ srml_staking_reward_curve::build! {
 parameter_types! {
 	pub const SessionsPerEra: sr_staking_primitives::SessionIndex = 6;
 	pub const BondingDuration: staking::EraIndex = 24 * 28;
-	pub const RewardCurve: &'static PiecewiseLinear = &REWARD_CURVE;
+	pub const RewardCurve: &'static PiecewiseLinear<'static> = &REWARD_CURVE;
 }
 
 impl staking::Trait for Runtime {

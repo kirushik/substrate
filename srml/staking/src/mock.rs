@@ -182,7 +182,7 @@ impl timestamp::Trait for Test {
 	type MinimumPeriod = MinimumPeriod;
 }
 srml_staking_reward_curve::build! {
-	const I_NPOS: PiecewiseLinear = curve!(
+	const I_NPOS: PiecewiseLinear<'static> = curve!(
 		min_inflation: 0_025_000,
 		max_inflation: 0_100_000,
 		ideal_stake: 0_500_000,
@@ -194,7 +194,7 @@ srml_staking_reward_curve::build! {
 parameter_types! {
 	pub const SessionsPerEra: SessionIndex = 3;
 	pub const BondingDuration: EraIndex = 3;
-	pub const RewardCurve: &'static PiecewiseLinear = &I_NPOS;
+	pub const RewardCurve: &'static PiecewiseLinear<'static> = &I_NPOS;
 }
 impl Trait for Test {
 	type Currency = balances::Module<Self>;

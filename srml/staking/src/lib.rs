@@ -532,7 +532,7 @@ pub trait Trait: system::Trait {
 	type SessionInterface: self::SessionInterface<Self::AccountId>;
 
 	/// The NPoS reward curve to use.
-	type RewardCurve: Get<&'static PiecewiseLinear>;
+	type RewardCurve: Get<&'static PiecewiseLinear<'static>>;
 }
 
 /// Mode of era-forcing.
