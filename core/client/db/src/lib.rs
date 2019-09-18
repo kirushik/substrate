@@ -249,19 +249,19 @@ impl<'a> state_db::MetaDb for StateMetaDb<'a> {
 }
 
 struct HeaderCache<Block: BlockT> {
-	hash_to_data: LruCache<Block::Hash, LightHeader<Block>>,
+	hash_to_data: HashMap<Block::Hash, LightHeader<Block>>,
 }
 
 impl<Block: BlockT> HeaderCache<Block> {
-	fn new(capacity: usize) -> Self {
+	fn new() -> Self {
 		HeaderCache {
-			hash_to_data: LruCache::new(capacity),
+			hash_to_data: HashMap::new(),
 		}
 	}
 
 	fn get_data(&mut self, id: BlockId<Block>) -> Option<LightHeader<Block>> {
 		match id {
-			BlockId::Hash(hash) => self.hash_to_data.get_mut(&hash).cloned(),
+			BlockId::Hash(hash) => self.hash_to_data.get(&hash).cloned(),
 			BlockId::Number(_) => None,
 		}
 	}
@@ -287,7 +287,7 @@ impl<Block: BlockT> BlockchainDb<Block> {
 			db,
 			leaves: RwLock::new(leaves),
 			meta: Arc::new(RwLock::new(meta)),
-			header_cache: RwLock::new(HeaderCache::new(LIGHT_HEADER_CACHE_SIZE)),
+			header_cache: RwLock::new(HeaderCache::new()),
 		})
 	}
 

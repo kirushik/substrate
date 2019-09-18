@@ -22,6 +22,7 @@ use sr_primitives::traits::{Block as BlockT, Header as HeaderT, NumberFor};
 use sr_primitives::generic::BlockId;
 use sr_primitives::Justification;
 use consensus::well_known_cache_keys;
+use log::info;
 
 use crate::error::{Error, Result};
 
@@ -270,8 +271,8 @@ pub fn tree_route<Block: BlockT, Backend: HeaderBackend<Block>>(
 		number: to.number,
 		hash: to.hash,
 	});
+	info!("TREE ROUTE left {} right {}", pivot, to_branch.len());
 	from_branch.extend(to_branch.into_iter().rev());
-
 	Ok(TreeRoute {
 		route: from_branch,
 		pivot,
