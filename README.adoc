@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkirushik%2Fsubstrate.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkirushik%2Fsubstrate?ref=badge_shield)
+
 = Substrate
 :Author: Substrate developers
 :Revision: 0.2.0
@@ -529,3 +531,7 @@ include::CODE_OF_CONDUCT.adoc[]
 == License
 
 https://github.com/paritytech/substrate/blob/master/LICENSE[LICENSE]
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkirushik%2Fsubstrate.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkirushik%2Fsubstrate?ref=badge_large)
